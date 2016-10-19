@@ -1,0 +1,26 @@
+{
+  "name": "synthesis",
+  "version": "0.0.1",
+  "description": "Extensible content management framework to create web projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/synthesis-js/synthesis.git"
+  },
+  "keywords": [
+    "React",
+    "Redux",
+    "CMF",
+    "Node",
+    "Express"
+  ],
+  "author": "Todd C., Mike M. Jose N.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/synthesis-js/synthesis/issues"
+  },
+  "homepage": "http://synthesisjs.io"
+}
