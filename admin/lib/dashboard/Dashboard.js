@@ -1,7 +1,7 @@
 // Dashboard.js
 import React from 'react';
 // import ALL components from plugin/index.js
-import * as Components from "../../plugins"
+import * as Components from "../../../plugins"
 
 export default class Dashboard extends React.Component {
   constructor(props) {

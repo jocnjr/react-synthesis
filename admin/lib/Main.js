@@ -7,7 +7,7 @@ import App from './App';
 function mapStateToProps(state) {
 	return {
 		user: state.user,
-		dashboardComponents: state.dashboardComponents
+		components: state.components
 	}
 }
 

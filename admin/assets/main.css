@@ -1,0 +1,7 @@
+body{
+  background: cornflowerblue;
+}
+/*// to fix visibility for the body content form on post.html*/
+.form-group{
+  margin-bottom: 45px;
+}

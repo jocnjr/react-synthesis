@@ -13,6 +13,7 @@ module.exports = {
     historyApiFallback: true,
     proxy: {
       '/api/*': 'http://localhost:3000',
+      '/login': 'http://localhost:3000'
     },
   },
   resolve: {
