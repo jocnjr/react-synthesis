@@ -7,7 +7,7 @@
   },
   "main": "index.js",
   "bin": {
-    "syn": "./index.js"
+    "syn": "./cli/index.js"
   },
   "scripts": {
     "start": "nodemon server/server.js",
