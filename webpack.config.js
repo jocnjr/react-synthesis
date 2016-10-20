@@ -5,7 +5,7 @@ const webpack = require('webpack');
 const buildDirectory = './dist/';
 
 module.exports = {
-  entry: './lib/main.jsx',
+  entry: './index.js',
   devServer: {
     hot: true,
     inline: true,
@@ -35,12 +35,8 @@ module.exports = {
       loader: 'babel',
       query: {
         presets: ['react', 'es2015', 'stage-0'],
-      }
-    },
-    {
-        test: /\.scss$/,
-        loaders: ['style', 'css', 'sass']
-      }],
+      },
+    }],
   },
   plugins: [],
 };
