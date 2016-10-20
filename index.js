@@ -1,4 +1,3 @@
-// Entry point for the framework
 import React from 'react';
 import {render} from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
