@@ -1,0 +1,1 @@
+Fonts and images that are needed for the dashboard or other key features
