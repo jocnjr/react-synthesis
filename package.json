@@ -1,10 +1,10 @@
 {
-  "name": "jomito",
-  "version": "1.0.0",
+  "name": "synthesis",
+  "version": "0.0.1",
+  "description": "Extensible content management framework to create web projects",
   "engines": {
   "node": "6.4.0"
   },
-  "description": "FullStack Javascript CMS",
   "main": "index.js",
   "bin": {
     "syn": "./index.js"
@@ -17,14 +17,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/js-cmf/jomito.git"
+    "url": "git+https://github.com/synthesis-js/synthesis.git"
   },
-  "author": "Jose Neves, Mike McCready, Todd Chisom",
-  "license": "ISC",
+  "keywords": [
+    "React",
+    "Redux",
+    "CMF",
+    "Node",
+    "Express"
+  ],
+  "author": "Todd C., Mike M. Jose N.",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/js-cmf/jomito/issues"
+    "url": "https://github.com/synthesis-js/synthesis/issues"
   },
-  "homepage": "https://github.com/js-cmf/jomito",
+  "homepage": "http://synthesisjs.io",
   "dependencies": {
     "bcrypt": "^0.8.7",
     "body-parser": "^1.15.2",
