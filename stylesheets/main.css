@@ -65,7 +65,7 @@ a:hover {
 }
 
 .content-page-post h4 {
-    font-size: 1.15em;
+    font-size: 1.25em;
     /* text-transform: uppercase; */
     letter-spacing: .05em;
     font-weight: bold;
@@ -78,8 +78,10 @@ a:hover {
     letter-spacing: .015em;
 }
 
-
-
+.comment-box  {
+    display: inline-block;
+    width: 75% !important; 
+}
 
 
 

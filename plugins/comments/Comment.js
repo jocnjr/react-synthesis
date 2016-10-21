@@ -13,6 +13,7 @@ class Comment extends React.Component {
   }
 
   componentDidMount() {
+  	// if directed straight to view, get post id from window location
   	if(this.props.postData._id === undefined) {
   		let idString = window.location.pathname.split("/post/")[1];
   		this.state.postId = idString;
@@ -34,6 +35,7 @@ class Comment extends React.Component {
   }
 
   filterComments(commentData) {
+  	// loop through comments, returning ones for current post
   	let postId = this.state.postId;
   	let filteredComments = commentData.filter(comment => {
   		if(comment.post_id === postId) {
@@ -44,6 +46,7 @@ class Comment extends React.Component {
   }
 
   updateInput(e) {
+  	// update state with changing input from comment box
   	let newInput = e.target.value;
   	this.setState({input: newInput});
   }
@@ -51,7 +54,7 @@ class Comment extends React.Component {
   addComment() {
   	let comment = this.state.input;
   	let postId = this.state.postId;
-
+  	// build comment object
   	let commentObj = {};
   	commentObj.post_id = postId;
   	commentObj.body = comment;
@@ -60,6 +63,7 @@ class Comment extends React.Component {
   	commentObj.author_email = 'Mario@email.com';
   	// end placeholder
 
+  	// push comments to comment list in state
   	let commentList = this.state.comments.slice();
   	commentList.push(commentObj);
   	this.setState({comments: commentList});
@@ -92,10 +96,13 @@ class Comment extends React.Component {
   	})
   	
     return (
-    	<div>
-    		Comments
-    		<input ref="commentInput" placeholder="leave a comment" onChange={(e) => {this.updateInput(e)}} />
-    		<button onClick={(e) => {this.addComment(e)}}>Enter</button>
+    	<div className="col-md-6 col-md-offset-3">
+    		<h4>Comments</h4>
+    		<div className="form-group">
+    			<input className="form-control comment-box" ref="commentInput" placeholder="leave a comment" onChange={(e) => {this.updateInput(e)}} />
+
+    			<button className="btn btn-default" onClick={(e) => {this.addComment(e)}}>Enter</button>
+    		</div>
     		<div className="comment-list">
     			{commentList}
     		</div>
