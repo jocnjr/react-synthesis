@@ -5,12 +5,43 @@ class Comment extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+    	postId: this.props.postData._id,
     	comments: [],
     	input: ''
     }
+    this.getCommentsFromDB = this.getCommentsFromDB.bind(this);
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+  	if(this.props.postData._id === undefined) {
+  		let idString = window.location.pathname.split("/post/")[1];
+  		this.state.postId = idString;
+  	}
+  	this.getCommentsFromDB();
+  }
+
+  getCommentsFromDB() {
+  	let that = this;
+  	let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = () => {
+      if(xhr.status === 200 && xhr.readyState === 4) {
+        that.filterComments(JSON.parse(xhr.responseText));
+      }     
+    }
+    xhr.open('GET', '/api/comments');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send();
+  }
+
+  filterComments(commentData) {
+  	let postId = this.state.postId;
+  	let filteredComments = commentData.filter(comment => {
+  		if(comment.post_id === postId) {
+  			return comment;
+  		} 
+  	})
+  	this.setState({comments: filteredComments});
+  }
 
   updateInput(e) {
   	let newInput = e.target.value;
@@ -19,24 +50,25 @@ class Comment extends React.Component {
 
   addComment() {
   	let comment = this.state.input;
-  	let commentList = this.state.comments.slice();
-  	commentList.push(comment);
-  	this.setState({comments: commentList})
-  	this.saveCommentToDB(comment)
-  	this.clearInput();
-  }
+  	let postId = this.state.postId;
 
-  saveCommentToDB(comment) {
-  	let commentObj = {}
-  	let postId = this.props.postData._id;
+  	let commentObj = {};
   	commentObj.post_id = postId;
   	commentObj.body = comment;
-
   	// placeholder
   	commentObj.author = 'Mario';
   	commentObj.author_email = 'Mario@email.com';
   	// end placeholder
 
+  	let commentList = this.state.comments.slice();
+  	commentList.push(commentObj);
+  	this.setState({comments: commentList});
+
+  	this.saveCommentToDB(commentObj)
+  	this.clearInput();
+  }
+
+  saveCommentToDB(commentObj) {
   	let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = () => {
       if(xhr.status === 200 && xhr.readyState === 4) {
@@ -56,7 +88,7 @@ class Comment extends React.Component {
 
   render() {
   	let commentList = this.state.comments.map((comment, i) => {
-  		return <div key={i}>{comment}</div>
+  		return <div key={i}>{comment.body}</div>
   	})
   	
     return (
