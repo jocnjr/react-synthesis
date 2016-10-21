@@ -48,8 +48,8 @@ export default class CreateCollectionForm extends React.Component {
     		<h4>Create New Collection</h4>
     		<input type="text" placeholder="Collection Title" onChange={this.handleTitleChange} />
     		{ propsFields }
-    		<button onClick={this.addProperty}>Add property</button>
-    		<button type="submit">Create Collection</button>
+    		<button className="btn btn-default" onClick={this.addProperty}>Add property</button>
+    		<button className="btn btn-default" type="submit">Create Collection</button>
     	</form>
     )
 	}

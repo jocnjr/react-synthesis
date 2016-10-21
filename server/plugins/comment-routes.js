@@ -17,5 +17,5 @@ module.exports = function(app) {
   app.put('/api/comment/:comment_id', commentController.updateCommentById);
 
   // deleting a specific comment
-  app.delete('/api/user/:user_id', commentController.deleteCommentById);
+  app.delete('/api/comment/:comment_id', commentController.deleteCommentById);
 };
