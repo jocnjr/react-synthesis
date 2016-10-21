@@ -19,8 +19,13 @@ userController.createUser = (req, res) => {
   newUser.name = bodyObj.name;
   newUser.blog_id = bodyObj.blog_id;
 
-  newUser.save(function(err){
-    if (err) throw err;
+  newUser.save(function(err, res, next){
+    if (err) {
+      console.log('its hitting here, for sure <--------');
+      let newError = new Error('error! duplicated email in database.');
+      // res.status(500).send({error: 'error! duplicated email in database.'});
+      return 'duplicated email';
+    } 
   }).then(() => {
     User.findOne({email: newUser.email}, (err,user) => {
       if (err) return res.status(500).send(err);
@@ -29,7 +34,7 @@ userController.createUser = (req, res) => {
         cookieController.setSSIDCookie(req, res, newToken);
         res.redirect('/dashboard.html');        
       } else {
-        res.status(500).send('no user for you');
+        return res.status(500).send('no user for you');
       }
     })
   });
