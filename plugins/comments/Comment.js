@@ -22,7 +22,30 @@ class Comment extends React.Component {
   	let commentList = this.state.comments.slice();
   	commentList.push(comment);
   	this.setState({comments: commentList})
+  	this.saveCommentToDB(comment)
   	this.clearInput();
+  }
+
+  saveCommentToDB(comment) {
+  	let commentObj = {}
+  	let postId = this.props.postData._id;
+  	commentObj.post_id = postId;
+  	commentObj.body = comment;
+
+  	// placeholder
+  	commentObj.author = 'Mario';
+  	commentObj.author_email = 'Mario@email.com';
+  	// end placeholder
+
+  	let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = () => {
+      if(xhr.status === 200 && xhr.readyState === 4) {
+        console.log('saved')
+      }     
+    }
+    xhr.open('POST', '/api/comment');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify(commentObj));
   }
 
   clearInput() {
@@ -32,7 +55,6 @@ class Comment extends React.Component {
   }
 
   render() {
-
   	let commentList = this.state.comments.map((comment, i) => {
   		return <div key={i}>{comment}</div>
   	})
