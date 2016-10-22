@@ -19,3 +19,10 @@ export function addComponent(componentObj) {
 		component: componentObj
 	}
 }
+
+export function getPosts(postsData) {
+	return {
+		type: 'GET_POSTS',
+		posts: postsData
+	}
+}

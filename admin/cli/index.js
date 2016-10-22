@@ -35,33 +35,6 @@ program
       newUser.password = password;
       newUser.name = name;
       newUser.blog_id = '101';   
-      //console.log('after newUser');
-
-      // http.get('http://localhost:3000/api/posts', (res) => {
-      //   console.log(`Got response: ${res.statusCode}`);
-      //   // consume response body
-      //   res.resume();
-      // }).on('error', (e) => {
-      //   console.log(`Got error: ${e.message}`);
-      // });
-      // posting blog to the api
-          // sendRequest function() {
-          //   return new Promise((resolve,reject) => {
-          //     console.log()
-
-
-      // var fileSize = fs.statSync(blog).size;
-      // var fileStream = fs.createReadStream(blog);
-      // var barOpts = {
-      //   width: 20,
-      //   total: fileSize,
-      //   clear: true
-      // };
-      // var bar = new ProgressBar(' uploading [:bar] :percent :etas', barOpts);
-
-      // fileStream.on('data', function (chunk) {
-      //   bar.tick(chunk.length);
-      // });
 
       console.log("...");
       console.log("... creating blog");
@@ -70,13 +43,14 @@ program
        .set('Accept', 'application/json')
        .send(newBlog)       
        .end(function (err, res) {
-         if (err) console.log(err);        
-        //  var link = res.body.links.html.href;
-        // console.log('blog created: %s', res.body, JSON.stringify(newBlog));
+         if (err.status === 404) {
+          //  console.log(err.status);
+           console.log('closing connection...');
+           process.exit();
+         } else {
+          console.log("... OK... DONE");
+         }
        });
-
-      console.log("... OK... DONE");
-
 
       // posting user to the api
       console.log("...");
@@ -86,12 +60,17 @@ program
        .send(newUser)
        .set('Accept', 'application/json')
        .end(function (err, res) {
-         if (err) console.log(err);
-         //console.log('user created: %s', res.body, JSON.stringify(newUser));
+         console.log('---- before error ----');
+         if (err) {
+          //  console.log(err.status);
+           console.log('closing connection...');
+           process.exit();
+         } else {
+          console.log("... OK... DONE");
+         }
+         console.log('---- after error ----');         
        });
-
-      console.log("... OK... DONE");
-      // process.exit();    
+      process.exit();    
     })
   })
   .parse(process.argv)

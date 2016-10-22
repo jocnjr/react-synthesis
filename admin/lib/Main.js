@@ -7,7 +7,9 @@ import App from './App';
 function mapStateToProps(state) {
 	return {
 		user: state.user,
-		components: state.components
+		components: state.components,
+		posts: state.posts
+
 	}
 }
 

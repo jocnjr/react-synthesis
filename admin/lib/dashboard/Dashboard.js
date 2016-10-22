@@ -3,6 +3,7 @@ import React from 'react';
 // import ALL components from plugin/index.js
 import * as Components from "../../../plugins"
 
+
 export default class Dashboard extends React.Component {
   constructor(props) {
     super(props);
@@ -61,8 +62,9 @@ export default class Dashboard extends React.Component {
           <option value="PostFeed">Post Feed</option>
           <option value="PostManager">Post Manager</option>
           <option value="Collection">Data Manager</option> 
+          <option value="Comment">Comments</option> 
         </select>
-        <button onClick={(e) => {this.addComponent(e)}}>Add Plugin</button>
+        <button className="btn btn-default" onClick={(e) => {this.addComponent(e)}}>Add Plugin</button>
         {injectedComponents}
     	</div>
     )
