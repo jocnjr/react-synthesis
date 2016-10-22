@@ -7,8 +7,8 @@
   },
   "main": "index.js",
   "bin": {
-    "syn": "./cli/index.js",
-    "syn-plugin": "./cli/plugin.js"
+    "synth": "./cli/index.js",
+    "synth-plugin": "./cli/plugin.js"
   },
   "scripts": {
     "start": "nodemon server/server.js",
@@ -25,7 +25,8 @@
     "Redux",
     "CMF",
     "Node",
-    "Express"
+    "Express",
+    "React CMS"
   ],
   "author": "Todd C., Mike M. Jose N.",
   "license": "MIT",

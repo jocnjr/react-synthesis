@@ -1,7 +1,7 @@
 // synthesis.js
 const pluginConfig = {
-	name: '', 
-	mount_point: ''
+	name: '%name%', 
+	mount_point: '%mount_point%'
 }
 
 module.exports = pluginConfig;
