@@ -10,7 +10,7 @@ import Main from './admin/lib/Main';
 import ContentPage from './admin/lib/content-page/Content';
 import Dashboard from './admin/lib/dashboard/Dashboard';
 import Login from './admin/lib/content-page/login/Login';
-import PostView from './admin/lib/post-view/components/PostView';
+import PostView from './admin/lib/post/components/PostView';
 
 // attach point
 const appRoot = document.getElementById('root');
