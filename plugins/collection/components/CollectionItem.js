@@ -11,7 +11,7 @@ export default function CollectionItem(props) {
   return (
   	<tr>
     	{properties}
-    	<td><button onClick={() => props.deleteItem(props.itemId)}>Delete</button></td>
+    	<td><button className="btn btn-default" onClick={() => props.deleteItem(props.itemId)}>Delete</button></td>
   	</tr>
   )
 }

@@ -22,7 +22,7 @@ export default function Collection(props) {
   return (
   	<div>
     	<h4>{props.collection.title}</h4>
-      <button onClick={(e) => props.deleteCollection(e, props.collection._id)}>delete collection</button>
+      <button className="btn btn-default" onClick={(e) => props.deleteCollection(e, props.collection._id)}>delete collection</button>
     	<table className="table">
 	    	<thead>
 	    		<tr className="collection-header">{ fields }</tr>
@@ -33,7 +33,7 @@ export default function Collection(props) {
     	</table>
     	<form onSubmit={(e) => props.addItem(e, props.collection._id)}>
     		New item {addItemInputs}
-    		<button type="submit">Add item</button>
+    		<button className="btn btn-default" type="submit">Add item</button>
     	</form>
       <br />
   	</div>
