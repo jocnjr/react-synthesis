@@ -1,5 +1,5 @@
 // post reducer
-function posts(state = [], action) {
+function post(state = [], action) {
   console.log(state, action);
   switch(action.type) {
     case 'ADD_POST':
@@ -21,4 +21,4 @@ function posts(state = [], action) {
 	}	
 }
 
-export default posts;
+export default post;
