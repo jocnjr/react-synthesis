@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import user from './userReducer';
 import components from './componentsReducer';
-import post from './posts';
+import posts from './posts';
 
 const rootReducer = combineReducers({user, components, posts, routing: routerReducer});
 
