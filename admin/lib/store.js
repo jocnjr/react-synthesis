@@ -12,13 +12,14 @@ let userData = localStorage.getItem('token');
 
 // list of components to be rendered to dashboard
 let components = [];
+
 let posts = {};
 
 // define default state for store
 const defaultState = {
 	user: userData,
 	components,
-	posts: posts
+	posts
 };
 
 // instantiate store
