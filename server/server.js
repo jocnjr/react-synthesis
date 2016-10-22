@@ -137,9 +137,14 @@ app.delete('/api/plugin_item/:plugin_item_id', pluginItemController.deletePlugin
 // delete all items in plugin
 app.delete('/api/plugin_item/:plugin_item_id', pluginItemController.deletePluginItemById);
 
-// ** PLUGINS **
-const pluginsRoutes = require('./plugins'); 
+// ** PLUGINS ** DO NOT EDIT BELOW vvv
+const pluginsRoutes = require('./plugins');
+
+//%%begin%%
 require('./plugins/comment-routes')(app);
+//%%end%%
+
+// ** PLUGINS ** DO NOT EDIT ABOVE ^^^
 
 // configuring env production port
 const PORT = process.env.PORT || 3000

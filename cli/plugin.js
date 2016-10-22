@@ -14,29 +14,51 @@ program
       let mountPoint= yield prompt('mount point -> dashboard, post-feed or post-view: ');      
       let description = yield prompt('plugin description: ');
       console.log(mountPoint, description, pluginName);
-      createDir(pluginName);    
+      // creating plugin directory and  
+      createDirPluginSynthFile(pluginName, mountPoint);
+      editServerFile(pluginName);          
       // process.exit();    
     })
   })
-  .parse(process.argv)
+  .parse(process.argv);
 
-function createDir(dirName) {
+function createDirPluginSynthFile(dirName, mountPoint) {
     let path = './plugins/'+dirName;
     fs.mkdir(path, function(err) {
       if (err) {
         console.log(err);
       } else {
         console.log('dir created');
-        let pluginTemplate = fs.readFile('./plugins/plugin.synth.js', 'utf8', function(err) {
+        fs.readFile('./plugins/plugin.synth.js', 'utf8', function(err, fileContents) {
           if (err) throw err;
+          console.log(typeof fileContents);
+          fileContents = fileContents.replace(/%name%/i, dirName);
+          fileContents = fileContents.replace(/%mount_point%/i, mountPoint);
+          fs.writeFile(path + "/plugin.synth.js", fileContents, function(err) {
+              if (err) {
+                  console.log('error writing file', err);
+              } else {
+                  console.log('writing file succeeded');
+              }
+          });
         });
-        fs.writeFile(path + "/plugin.synth.js", pluginTemplate, function(err) {
-            if (err) {
-                console.log('error writing file', err);
-            } else {
-                console.log('writing file succeeded');
-            }
-        });        
       }  
     });
 }
+
+function editServerFile(pluginName) {
+    let pathServerFile = './server/server.js';
+    let requireStr = '//%%begin%%\nrequire(\'./plugins/'+pluginName+'-routes\')(app);'
+    fs.readFile(pathServerFile, 'utf8', function(err, fileContents) {
+      if (err) throw err;
+      console.log(typeof fileContents);
+      fileContents = fileContents.replace(/\/\/%%begin%%/i, requireStr);
+      fs.writeFile(pathServerFile, fileContents, function(err) {
+          if (err) {
+              console.log('error writing file', err);
+          } else {
+              console.log('writing file succeeded');
+          }
+      });
+    });
+  }
