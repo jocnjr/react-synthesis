@@ -21,7 +21,7 @@ function deletePost(postID) {
 // update post
 function updatePost(postID, title, author, type, status, publishDate) {
   return {
-    type: 'ADD_POST',
+    type: 'UPDATE_POST',
     postID,
     title,
     author,

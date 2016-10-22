@@ -1,5 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
+// react router and dependencies
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import store, { history } from './admin/lib/store';
