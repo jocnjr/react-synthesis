@@ -151,5 +151,5 @@ const PORT = process.env.PORT || 3000
 
 // spinning up the server 
 app.listen(PORT, function () {
-  console.log('JoMiTo listening on port %s!', PORT);
+  console.log('react synthesis listening on port %s!', PORT);
 });

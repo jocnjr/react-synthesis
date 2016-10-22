@@ -17,10 +17,11 @@ program
       // creating plugin directory and  
       createDirPluginSynthFile(pluginName, mountPoint);
       editServerFile(pluginName);          
-      // process.exit();    
+      // process.exit();
     })
   })
   .parse(process.argv);
+console.log('it worked, feel safe to ctrl+C'); 
 
 function createDirPluginSynthFile(dirName, mountPoint) {
     let path = './plugins/'+dirName;
