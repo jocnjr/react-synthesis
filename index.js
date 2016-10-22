@@ -22,6 +22,7 @@ render((
 				<IndexRoute component={ContentPage} />
 				<Route path="/login" component={Login} />
 				<Route path="/dashboard" component={Dashboard} />
+				<Route path="/test" component={Dashboard} />
 				<Route path="/post/:id" component={PostView} />
 			</Route>
 		</Router>
