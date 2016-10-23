@@ -1,4 +1,6 @@
 // actionCreators.js
+import postAction from './post/actions'
+export default postAction;
 export function getUserData(token) {
 	return {
 		type: 'GET_USER_DATA',

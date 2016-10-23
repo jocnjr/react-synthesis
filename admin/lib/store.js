@@ -14,12 +14,14 @@ let userData = localStorage.getItem('token');
 let components = [];
 
 let posts = {};
+let post = {};
 
 // define default state for store
 const defaultState = {
 	user: userData,
 	components,
-	posts
+	posts,
+	post
 };
 
 // instantiate store

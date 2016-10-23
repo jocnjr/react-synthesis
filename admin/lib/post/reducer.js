@@ -1,5 +1,5 @@
 // post reducer
-export const post = (state, action) => {
+export const post = (state = {}, action) => {
 	console.log(state, action);
 	switch(action.type) {
 		case 'ADD_POST':
