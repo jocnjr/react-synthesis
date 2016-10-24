@@ -1,4 +1,4 @@
 module.exports = {
-  commentModel: require('./comment'),
-  commentController: require('./comment-controller')
+  commentModel: require('./model'),
+  commentController: require('./controller')
 };
