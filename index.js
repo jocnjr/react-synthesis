@@ -11,6 +11,7 @@ import ContentPage from './admin/lib/content-page/Content';
 import Dashboard from './admin/lib/dashboard/Dashboard';
 import Login from './admin/lib/content-page/login/Login';
 import PostView from './admin/lib/post/components/PostView';
+import PostForm from './admin/lib/post/components/PostForm';
 
 // attach point
 const appRoot = document.getElementById('root');
@@ -22,7 +23,7 @@ render((
 				<IndexRoute component={ContentPage} />
 				<Route path="/login" component={Login} />
 				<Route path="/dashboard" component={Dashboard} />
-				<Route path="/test" component={Dashboard} />
+				<Route path="/test" component={PostForm} />
 				<Route path="/post/:id" component={PostView} />
 			</Route>
 		</Router>
