@@ -14,14 +14,14 @@ program
       let mountPoint= yield prompt('mount point -> dashboard, post-feed or post-view: ');      
       let description = yield prompt('plugin description: ');
       console.log(mountPoint, description, pluginName);
-      // creating plugin directory and  
+      // creating plugin directory and  config file
       createDirPluginSynthFile(pluginName, mountPoint);
       editServerFile(pluginName);          
       // process.exit();
     })
   })
   .parse(process.argv);
-console.log('it worked, feel safe to ctrl+C'); 
+// console.log('it worked, feel safe to ctrl+C'); 
 
 function createDirPluginSynthFile(dirName, mountPoint) {
     let path = './plugins/'+dirName;
@@ -30,12 +30,12 @@ function createDirPluginSynthFile(dirName, mountPoint) {
         console.log(err);
       } else {
         console.log('dir created');
-        fs.readFile('./plugins/plugin.synth.js', 'utf8', function(err, fileContents) {
+        fs.readFile('./tpl-plugin/synth.js', 'utf8', function(err, fileContents) {
           if (err) throw err;
           console.log(typeof fileContents);
           fileContents = fileContents.replace(/%name%/i, dirName);
           fileContents = fileContents.replace(/%mount_point%/i, mountPoint);
-          fs.writeFile(path + "/plugin.synth.js", fileContents, function(err) {
+          fs.writeFile(path + "/synth.js", fileContents, function(err) {
               if (err) {
                   console.log('error writing file', err);
               } else {
@@ -49,7 +49,7 @@ function createDirPluginSynthFile(dirName, mountPoint) {
 
 function editServerFile(pluginName) {
     let pathServerFile = './server/server.js';
-    let requireStr = '//%%begin%%\nrequire(\'./plugins/'+pluginName+'-routes\')(app);'
+    let requireStr = '//%%begin%%\nconst '+pluginName+'Routes = require(\'./plugins/'+pluginName+'/server\');\nrequire(\'./plugins/'+pluginName+'/server/routes\')(app);'
     fs.readFile(pathServerFile, 'utf8', function(err, fileContents) {
       if (err) throw err;
       console.log(typeof fileContents);
