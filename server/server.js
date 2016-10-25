@@ -147,6 +147,21 @@ require('../plugins/Comments/server/routes')(app);
 
 // ** PLUGINS ** DO NOT EDIT ABOVE ^^^
 
+
+// get list of plugins from plugin directory
+app.get('/api/stored-plugins', (req, res) => {
+  let plugins = fs.readdirSync('plugins').filter(file =>{
+    return fs.statSync(path.join('plugins', file)).isDirectory();
+  });
+  res.send(plugins)
+})
+
+// function getDirectories(srcpath) {
+//   return fs.readdirSync(srcpath).filter(function(file) {
+//     return fs.statSync(path.join(srcpath, file)).isDirectory();
+//   });
+// }
+
 // configuring env production port
 const PORT = process.env.PORT || 3000
 

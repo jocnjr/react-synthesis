@@ -19,9 +19,9 @@ render((
 		<Router history={history}>
 			<Route path="/" component={Main}>
 				<IndexRoute component={ContentPage} />
+				<Route path="/post/:id" component={PostView} />
 				<Route path="/login" component={Login} />
 				<Route path="/dashboard" component={Dashboard} />
-				<Route path="/post/:id" component={PostView} />
 			</Route>
 		</Router>
 	</Provider>
