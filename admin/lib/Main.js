@@ -8,8 +8,7 @@ function mapStateToProps(state) {
 	return {
 		user: state.user,
 		components: state.components,
-		posts: state.posts,
-		post: state.post
+		posts: state.posts
 	}
 }
 

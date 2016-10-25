@@ -20,7 +20,7 @@ pluginController.createPlugin = (req, res) => {
       }
       return res.status(500).send({ success: false, message: 'Plugin not saved!' });
     } else {
-      return res.sendStatus(200);
+      return res.status(200).send(newPlugin);
     }
   });
 };

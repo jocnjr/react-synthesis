@@ -1,7 +1,7 @@
 // synthesis.js
 const pluginConfig = {
-	name: '', 
-	mount_point: ''
+	name: 'DataManager', 
+	mount_point: 'dashboard'
 }
 
 module.exports = pluginConfig;
