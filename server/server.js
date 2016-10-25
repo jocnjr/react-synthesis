@@ -142,8 +142,6 @@ app.delete('/api/plugin_item/:plugin_item_id', pluginItemController.deletePlugin
 // ** PLUGINS ** DO NOT EDIT BELOW vvv
 
 //%%begin%%
-const test800Routes = require('./plugins/test800/server');
-require('./plugins/test800/server/routes')(app);
 require('../plugins/comments/server/routes')(app);
 //%%end%%
 
