@@ -1,22 +1,58 @@
 // Dashboard.js
 import React from 'react';
 // import ALL components from plugin/index.js
-import * as Components from "../../../plugins"
-
+import * as Components from '../../../plugins';
+import DashboardNav from './components/DashboardNav';
+import PluginManager from './components/PluginManager';
 
 export default class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      activeView: 'pluginManager',
+      localPluginList: []
+    }
     this.addComponent = this.addComponent.bind(this);
+    this.deleteComponent = this.deleteComponent.bind(this);
+    this.changeView = this.changeView.bind(this);
     this.saveComponentsToDB = this.saveComponentsToDB.bind(this);
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.buildPluginSelector();
+  }
 
   addComponent(e) {
     let pluginName = e.target.previousSibling.value;
     this.saveComponentsToDB(pluginName);
+  }
+
+  buildPluginSelector() {
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = () => {
+      if(xhr.status === 200 && xhr.readyState === 4) {
+        this.setState({localPluginList: JSON.parse(xhr.responseText)})
+      }     
+    }
+    xhr.open('GET', '/api/stored-plugins');
+    xhr.send();    
+  }
+
+  changeView(e) {
+    let selected = e.target.getAttribute('data-name');
+    this.setState({activeView: selected})
+  }
+
+  deleteComponent(pluginData) {
+    let that = this;
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = () => {
+      if(xhr.status === 200 && xhr.readyState === 4) {
+        that.props.deleteComponent(pluginData);
+      }     
+    }
+    xhr.open('DELETE', '/api/plugin/' + pluginData._id);
+    xhr.send();
   }
 
   saveComponentsToDB(pluginName) {
@@ -26,15 +62,12 @@ export default class Dashboard extends React.Component {
     let componentObj = {
       name: pluginName,
       mount_point: mount_point
-      // spoofed
-      // get data from plugin component
-      // plugin_properties: []
     }
 
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = () => {
       if(xhr.status === 200 && xhr.readyState === 4) {
-        that.props.addComponent(componentObj);
+        that.props.addComponent(JSON.parse(xhr.responseText));
       }     
     }
     xhr.open('POST', '/api/plugin');
@@ -43,6 +76,9 @@ export default class Dashboard extends React.Component {
   }
 
   render() {
+    let renderSynthComponent = ''
+    // instantiate array of active components to pass to nav
+    let dashboardPlugins = [];
     // map through component array from the redux store
     let injectedComponents = this.props.components.map((component, i) => {
       // lookup the component from plugin/index.js by referencing with 
@@ -50,23 +86,30 @@ export default class Dashboard extends React.Component {
       let ComponentElem = Components[component.name];
       // create the element
       if (component.mount_point === 'dashboard') {
-        return <ComponentElem key={i} />
+        dashboardPlugins.push(component);
+        // if the component name is equal to the active state component, render it
+        if (component.name === this.state.activeView) return <ComponentElem key={i} />
       }
     })
 
+    // list of pre-installed components
+    let synthComponents = {
+        pluginManager: <PluginManager installedPlugins={this.props.components} localPlugins={this.state.localPluginList} addComponent={this.addComponent} deleteComponent={this.deleteComponent} />
+    }
+    // check if component is active
+    if (synthComponents[this.state.activeView]) {
+      renderSynthComponent = synthComponents[this.state.activeView]
+    }
+
     // render all of our injected components onto the dashboard
     return (
-    	<div>
-	    	<h1>synthesis dashboard</h1>
-        <select>
-          <option value="PostFeed">Post Feed</option>
-          <option value="PostManager">Post Manager</option>
-          <option value="Collection">Data Manager</option> 
-          <option value="Comment">Comments</option> 
-        </select>
-        <button className="btn btn-default" onClick={(e) => {this.addComponent(e)}}>Add Plugin</button>
-        {injectedComponents}
-    	</div>
+      <div>
+        <DashboardNav changeView={this.changeView} installedPlugins={dashboardPlugins} />
+        <div className="dashboard-view-container">
+          {renderSynthComponent}
+          {injectedComponents}
+        </div>
+      </div>
     )
   }
 }
