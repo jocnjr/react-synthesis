@@ -137,14 +137,35 @@ app.delete('/api/plugin_item/:plugin_item_id', pluginItemController.deletePlugin
 // delete all items in plugin
 app.delete('/api/plugin_item/:plugin_item_id', pluginItemController.deletePluginItemById);
 
-// ** PLUGINS **
-const pluginsRoutes = require('./plugins'); 
-require('./plugins/comment-routes')(app);
+// const pluginsRoutes = require('./plugins');
+
+// ** PLUGINS ** DO NOT EDIT BELOW vvv
+
+//%%begin%%
+require('../plugins/Comments/server/routes')(app);
+//%%end%%
+
+// ** PLUGINS ** DO NOT EDIT ABOVE ^^^
+
+
+// get list of plugins from plugin directory
+app.get('/api/stored-plugins', (req, res) => {
+  let plugins = fs.readdirSync('plugins').filter(file =>{
+    return fs.statSync(path.join('plugins', file)).isDirectory();
+  });
+  res.send(plugins)
+})
+
+// function getDirectories(srcpath) {
+//   return fs.readdirSync(srcpath).filter(function(file) {
+//     return fs.statSync(path.join(srcpath, file)).isDirectory();
+//   });
+// }
 
 // configuring env production port
 const PORT = process.env.PORT || 3000
 
 // spinning up the server 
 app.listen(PORT, function () {
-  console.log('JoMiTo listening on port %s!', PORT);
+  console.log('react synthesis listening on port %s!', PORT);
 });
