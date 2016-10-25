@@ -37,7 +37,6 @@ function createDirAndFiles(dirName, mountPoint) {
         //creating synth.js file
         fs.readFile('./tpl-plugin/synth.js', 'utf8', function(err, fileContents) {
           if (err) throw err;
-          console.log(typeof fileContents);
           fileContents = fileContents.replace(/%name%/i, dirName);
           fileContents = fileContents.replace(/%mount_point%/i, mountPoint);
           fs.writeFile(path + "/synth.js", fileContents, function(err) {
@@ -52,6 +51,7 @@ function createDirAndFiles(dirName, mountPoint) {
         //creating actions.js file
         fs.readFile('./tpl-plugin/actions.js', 'utf8', function(err, fileContents) {
           if (err) throw err;
+          fileContents = fileContents.replace(/%name%/gi, dirName);
           fs.writeFile(path + "/actions.js", fileContents, function(err) {
               if (err) {
                   console.log('error writing file', err);
@@ -63,6 +63,7 @@ function createDirAndFiles(dirName, mountPoint) {
 
         //creating actionTypes.js file
         fs.readFile('./tpl-plugin/actionTypes.js', 'utf8', function(err, fileContents) {
+          fileContents = fileContents.replace(/%name%/gi, dirName);          
           if (err) throw err;
           fs.writeFile(path + "/actionTypes.js", fileContents, function(err) {
               if (err) {
@@ -75,6 +76,7 @@ function createDirAndFiles(dirName, mountPoint) {
 
         //creating constants.js file
         fs.readFile('./tpl-plugin/constants.js', 'utf8', function(err, fileContents) {
+          fileContents = fileContents.replace(/%name%/gi, dirName);          
           if (err) throw err;
           fs.writeFile(path + "/constants.js", fileContents, function(err) {
               if (err) {
@@ -88,6 +90,7 @@ function createDirAndFiles(dirName, mountPoint) {
         //creating index.js file
         fs.readFile('./tpl-plugin/index.js', 'utf8', function(err, fileContents) {
           if (err) throw err;
+          fileContents = fileContents.replace(/%name%/gi, dirName);          
           fs.writeFile(path + "/index.js", fileContents, function(err) {
               if (err) {
                   console.log('error writing file', err);
@@ -100,6 +103,7 @@ function createDirAndFiles(dirName, mountPoint) {
         //creating reducer.js file
         fs.readFile('./tpl-plugin/reducer.js', 'utf8', function(err, fileContents) {
           if (err) throw err;
+          fileContents = fileContents.replace(/%name%/gi, dirName);
           fs.writeFile(path + "/reducer.js", fileContents, function(err) {
               if (err) {
                   console.log('error writing file', err);
@@ -119,6 +123,7 @@ function createDirAndFiles(dirName, mountPoint) {
         console.log('components dir created');
         fs.readFile('./tpl-plugin/components/Plugin.js', 'utf8', function(err, fileContents) {
           if (err) throw err;
+          fileContents = fileContents.replace(/%name%/gi, dirName);
           fs.writeFile(componentsDir+'/'+firstLetterUpperCase(dirName)+'.js', fileContents, function(err) {
               if (err) {
                   console.log('error writing file', err);
@@ -139,6 +144,7 @@ function createDirAndFiles(dirName, mountPoint) {
         //creating controller.js in server folder
         fs.readFile('./tpl-plugin/server/controller.js', 'utf8', function(err, fileContents) {
           if (err) throw err;
+          fileContents = fileContents.replace(/%name%/gi, dirName);          
           fs.writeFile(serverDir + "/controller.js", fileContents, function(err) {
               if (err) {
                   console.log('error writing file', err);
@@ -151,6 +157,7 @@ function createDirAndFiles(dirName, mountPoint) {
         //creating routes.js in server folder
         fs.readFile('./tpl-plugin/server/routes.js', 'utf8', function(err, fileContents) {
           if (err) throw err;
+          fileContents = fileContents.replace(/%name%/gi, dirName);          
           fs.writeFile(serverDir + "/routes.js", fileContents, function(err) {
               if (err) {
                   console.log('server/routes.js error writing file', err);
@@ -163,6 +170,7 @@ function createDirAndFiles(dirName, mountPoint) {
         //creating model.js in server folder
         fs.readFile('./tpl-plugin/server/model.js', 'utf8', function(err, fileContents) {
           if (err) throw err;
+          fileContents = fileContents.replace(/%name%/gi, dirName);          
           fs.writeFile(serverDir + "/model.js", fileContents, function(err) {
               if (err) {
                   console.log('error writing file', err);
@@ -172,9 +180,10 @@ function createDirAndFiles(dirName, mountPoint) {
           });
         });  
 
-        //creating index.js in server folder
+        //creating index.js in server folder        
         fs.readFile('./tpl-plugin/server/index.js', 'utf8', function(err, fileContents) {
           if (err) throw err;
+          fileContents = fileContents.replace(/%name%/gi, dirName);
           fs.writeFile(serverDir + "/index.js", fileContents, function(err) {
               if (err) {
                   console.log('error writing file', err);
