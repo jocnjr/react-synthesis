@@ -1,6 +1,6 @@
 // synthesis.js
 const pluginConfig = {
-	name: 'Collection', 
+	name: 'DataManager', 
 	mount_point: 'dashboard'
 }
 
