@@ -4,9 +4,11 @@ export const post = (state = {}, action) => {
 	switch(action.type) {
 		case 'ADD_POST':
 			console.log('Adding a post');  
-			let newPostState = [];
-			newPostState.push(action.data)
-			return newPostState;
+			let newPost = Object.assign({}, action.data, {
+				test_id: +new Date
+			});
+			// newPost.push(action.data)
+			return newPost;
 		case 'DELETE_POST' :
 			console.log('Deleting a post');  
 			updatedState = state.slice();
