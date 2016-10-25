@@ -21,6 +21,7 @@ a:hover {
 	position: relative;
 	background-color: white;
 	height: 3.5em;
+    z-index: 100;
 }
 
 .main-nav-logo {
@@ -58,8 +59,32 @@ a:hover {
 	margin: 3.5em auto;
 }
 
-.dashboard-plugin {
-    display: none;
+.dashboard-nav-container {
+    position: fixed;
+    display: inline-block;
+    width: 15em;
+    background-color: white;
+    top: 0;
+    left: 0;
+    padding: 5em 1em;
+    height: 100vh;
+}
+
+.dashboard-nav {
+    list-style: none;
+    padding: 0;
+}
+
+.dashboard-nav-link {
+    cursor: pointer;
+    padding: .5em 0;
+    margin: 0;
+}
+
+.dashboard-view-container {
+    display: inline-block;
+    position: absolute;
+    left: 17.5em;
 }
 
 .content-page-post {
