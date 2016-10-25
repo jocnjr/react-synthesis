@@ -20,8 +20,7 @@ let post = {};
 const defaultState = {
 	user: userData,
 	components,
-	posts,
-	post
+	posts
 };
 
 // instantiate store
