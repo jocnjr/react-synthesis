@@ -1,21 +1,21 @@
-const commentController = require('./comment-controller');
+const controller = require('./controller');
 
 module.exports = function(app) {
 
-  // ** comment routes **
-  // comment creation route
+  // ** %name% routes **
+  // %name% creation route
 
-  app.post('/api/comment', commentController.createComment);
+  app.post('/api/%name%', controller.create);
 
   // listing all the comments
-  app.get('/api/comments', commentController.getAllComments);
+  app.get('/api/%name%', controller.getAll);
 
   // listing comment by id
-  app.get('/api/comment/:comment_id', commentController.commentById);
+  app.get('/api/%name%/:%name%_id', controller.byId);
 
   // updating a specific comment
-  app.put('/api/comment/:comment_id', commentController.updateCommentById);
+  app.put('/api/%name%/:%name%_id', controller.updateById);
 
   // deleting a specific comment
-  app.delete('/api/comment/:comment_id', commentController.deleteCommentById);
+  app.delete('/api/%name%/:%name%_id', controller.deleteById);
 };
