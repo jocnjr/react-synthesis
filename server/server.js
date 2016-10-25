@@ -142,7 +142,6 @@ app.delete('/api/plugin_item/:plugin_item_id', pluginItemController.deletePlugin
 // ** PLUGINS ** DO NOT EDIT BELOW vvv
 
 //%%begin%%
-const pluginsRoutes = require('./plugins');
 require('./plugins/comment/server/routes')(app);
 //%%end%%
 
