@@ -74,13 +74,26 @@ const BodyInput = () => {
 // 		);
 // 	}
 // }
-const PostDetails = () => {
+const PostDetails = (props) => {
 	return (
-		<div className="form-group">
-			<textarea className="form-control" id="post-body" rows="10"></textarea>
+		<div className="form-group" id="edit-slug">
+			<strong>Permalink:</strong>
+			<span id="sample-permalink" tabindex="-1">{props.site_url}<span id="editable-post-name" title="Click to edit this part of the permalink">focusing-on-tw…es-tsu-and-usc</span>/</span>
+			<span id="edit-slug-buttons"><a href="#post_name" class="edit-slug button button-small hide-if-no-js" onclick="editPermalink(80); return false;">Edit</a></span>
+			<span id="editable-post-name-full">focusing-on-two-universities-tsu-and-usc</span>
+
 		</div>
 	);
 }
+
+
+// <div className="hide-if-no-js">
+// 	<strong>Permalink:</strong>
+// <span id="sample-permalink" tabindex="-1">http://initialinquiry.com/<span id="editable-post-name" title="Click to edit this part of the permalink">focusing-on-tw…es-tsu-and-usc</span>/</span>
+// ‎<span id="edit-slug-buttons"><a href="#post_name" class="edit-slug button button-small hide-if-no-js" onclick="editPermalink(80); return false;">Edit</a></span>
+// <span id="editable-post-name-full">focusing-on-two-universities-tsu-and-usc</span>
+// <span id="view-post-btn" style="display: inline;"><a href="http://initialinquiry.com/focusing-on-two-universities-tsu-and-usc/" class="button button-small">View Post</a></span>
+// <input id="shortlink" type="hidden" value="http://initialinquiry.com/?p=80"><a href="#" class="button button-small" onclick="prompt('URL:', jQuery('#shortlink').val()); return false;">Get Shortlink</a>	</div>
 
 
 
