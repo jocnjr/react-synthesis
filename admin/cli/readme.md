@@ -16,11 +16,13 @@ Important (2): you will need the server running to be able to post the data to y
 
 2. going through the prompt you'll be asked to:
 
+```
  -> enter the app title
  -> enter the app description
  -> enter email account (login)
  -> enter password
  -> enter author's name
+ ```
 
 3. after the confirmation you're safe to ctrl+c.
 
@@ -32,6 +34,7 @@ some of the files are going to be fully ready to go and other will need more att
 
 here is the basic strutcture that will be created inside the plugins folder:
 
+```
 -/plugins
   -/<pluginName>
     -/components
@@ -47,6 +50,7 @@ here is the basic strutcture that will be created inside the plugins folder:
     - index.js
     - reducer.js
     - synth.js
+```
 
 2. to create a new plugin use:
 
@@ -55,9 +59,10 @@ synth-plugin <appName>
 ````
 
 3. enter the mount-point for the plugin
-
+```
     -> post-feed - plugins that run on the list of posts of the app.
     -> post-view - plugins that are showed on the post view.
     -> dashboard - plugins that run only on the dashboard and are not visualised on frontend.
+```
 
 4. wait for the confirmation message and you're safe to ctrl+c.
