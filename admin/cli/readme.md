@@ -32,6 +32,7 @@ some of the files are going to be fully ready to go and other will need more att
 
 here is the basic strutcture that will be created inside the plugins folder:
 
+```
 -/plugins
   -/<pluginName>
     -/components
@@ -47,6 +48,7 @@ here is the basic strutcture that will be created inside the plugins folder:
     - index.js
     - reducer.js
     - synth.js
+```
 
 2. to create a new plugin use:
 
