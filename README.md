@@ -7,8 +7,45 @@ Synthesis is an open-source content mangement framework built for the modern web
 A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
 
 ## Installation
+```
+git clone https://github.com/synthesis-js/react-synthesis.git
 
-Provide code examples and explanations of how to get the project.
+cd react-synthesis-master
+
+npm install
+```
+
+Next create a file in the root directory, titled config.js. This file will hold the url to your mongo database as we as your secret key for password hashing. 
+
+We use mongo labs for a simple remote database https://mlab.com/.
+
+Your session secret should be a string.
+
+```
+// config.js
+const sessionSecret = "hashSecret";
+const serverConfig = 'mongodb://database.url';
+
+module.exports = { sessionSecret, serverConfig };
+```
+
+Next run the webpack build command to compile our react components.
+```
+npm run build
+```
+
+For local development, start up the react devolopment server and navigate to http://localhost:7700/
+```
+npm run dev:hot
+```
+
+Then start up the express server
+```
+npm start
+```
+
+If no users have been created you will be redirect to the sign-up page to create the admin user.
+	
 
 ## API Reference
 
