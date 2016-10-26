@@ -8,7 +8,6 @@ export default class PostFeedItem extends React.Component {
     return (
   		<div className="content-page-post" key={this.props.postData._id}>
   			<h4><Link to={postUrl}>{ this.props.postData.title }</Link></h4>
-  			<br />
   		</div>
     )
   }
