@@ -25,7 +25,6 @@ render((
 				<Route path="/post/:id" component={PostView} />
 				<Route path="/login" component={Login} />
 				<Route path="/dashboard" component={Dashboard} />
-
 				<Route path="/test" component={PostAdd} />
 				<Route path="/add" component={PostAdd} />
 				<Route path="/edit" component={Edit} />
