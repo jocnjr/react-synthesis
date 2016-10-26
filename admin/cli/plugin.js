@@ -17,7 +17,7 @@ program
       // creating plugin directory and config file
       createDirAndFiles(pluginName, mountPoint);
       editServerFile(pluginName);          
-      // process.exit();
+      createPlugin(pluginName, mountPoint);
     })
   })
   .parse(process.argv);
@@ -198,7 +198,7 @@ function createDirAndFiles(dirName, mountPoint) {
 }
 
 function editServerFile(pluginName) {
-    let pathServerFile = './server/server.js';
+    let pathServerFile = './admin/server/server.js';
     let requireStr = '//%%begin%%\nconst '+pluginName+'Routes = require(\'./plugins/'+pluginName+'/server\');\nrequire(\'./plugins/'+pluginName+'/server/routes\')(app);'
     fs.readFile(pathServerFile, 'utf8', function(err, fileContents) {
       if (err) throw err;
@@ -216,4 +216,28 @@ function editServerFile(pluginName) {
 
   function firstLetterUpperCase(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  function createPlugin(pluginName, mountPoint) {
+      // creating the plugin on database
+      let newPlugin = {};
+      newPlugin.name = pluginName;
+      newPlugin.mount_point = mountPoint;  
+      newPlugin.plugin_properties = [];
+
+      console.log("...");
+      console.log("... creating plugin");
+      request
+       .post('http://localhost:3000/api/plugin')
+       .set('Accept', 'application/json')
+       .send(newPlugin)       
+       .end(function (err, res) {
+         if (err) {
+          //  console.log(err.status);
+           console.log('closing connection...');
+        //    process.exit();
+         } else {
+          console.log("... OK... DONE");
+         }
+       });
   }

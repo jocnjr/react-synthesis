@@ -7,27 +7,22 @@ const progressBar = require('progress');
 const request = require('superagent');
 
 console.log('welcome, hi there, we\'re team synthesis!');
-console.log('run: syn <blogName> or syn -h');
+console.log('run: syn <appName> or syn -h');
 program
-  .arguments('<blog>')
-  .action(function (blog) {
+  .arguments('<app>')
+  .action(function (app) {
     co(function *() {
-      let blogTitle = yield prompt('blog title: ');
-      let blogDescription = yield prompt('blog description: ');
+      let appTitle = yield prompt('app title: ');
+      let appDescription = yield prompt('app description: ');
       let email = yield prompt('email account: ');
       let password = yield prompt.password('password: ');
-      let name = yield prompt('name: ');
-      //console.log('user: %s and blog %s created!',
-      //  email, blog);
-      // process.exit();
-      //creating the blog
-      let newBlog = {};
-      newBlog.title = blogTitle;
-      newBlog.description = blogDescription;
-      newBlog.user_id = '1001';  
-      newBlog.blog_id = '101';
-      // console.log('after newBlog obj', newBlog);
+      let name = yield prompt('author\'s name: ');
+      let newApp = {};
 
+      newApp.title = appTitle;
+      newApp.description = appDescription;
+      newApp.user_id = '1001';  
+      newApp.blog_id = '101';
 
       // creating the user
       let newUser = {};
@@ -37,13 +32,13 @@ program
       newUser.blog_id = '101';   
 
       console.log("...");
-      console.log("... creating blog");
+      console.log("... creating app");
       request
        .post('http://localhost:3000/api/blog')
        .set('Accept', 'application/json')
-       .send(newBlog)       
+       .send(newApp)       
        .end(function (err, res) {
-         if (err.status === 404) {
+         if (err) {
           //  console.log(err.status);
            console.log('closing connection...');
            process.exit();
@@ -60,17 +55,14 @@ program
        .send(newUser)
        .set('Accept', 'application/json')
        .end(function (err, res) {
-         console.log('---- before error ----');
          if (err) {
-          //  console.log(err.status);
            console.log('closing connection...');
            process.exit();
          } else {
           console.log("... OK... DONE");
-         }
-         console.log('---- after error ----');         
+         }         
        });
-      process.exit();    
+      // process.exit();    
     })
   })
   .parse(process.argv)

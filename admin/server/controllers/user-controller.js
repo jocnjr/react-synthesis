@@ -9,7 +9,7 @@ let userController = {};
 
 // create the user on mongoDB
 userController.createUser = (req, res) => {
-  // console.log(req.body);
+  console.log(req.body);
 
   let bodyObj = req.body;
 
@@ -32,7 +32,7 @@ userController.createUser = (req, res) => {
       if (user) {
         let newToken = new Buffer(serverConfig.sessionSecret + user.email).toString('base64');
         cookieController.setSSIDCookie(req, res, newToken);
-        res.redirect('/dashboard.html');        
+        res.send({user})        
       } else {
         return res.status(500).send('no user for you');
       }
@@ -78,7 +78,9 @@ userController.deleteUserById = (req, res) => {
 
 //verify user's credentials
 userController.verifyUser = (req, res, next) => {
+  console.log('password', req.body.password)
   User.findOne({email: req.body.email}, (err,user) => {
+    console.log('user', user.password)
     if (err) return res.status(500).send(err);
     if (user) {
       if (bcrypt.compareSync(req.body.password, user.password)) {

@@ -7,8 +7,8 @@
   },
   "main": "index.js",
   "bin": {
-    "synth": "./cli/index.js",
-    "synth-plugin": "./cli/plugin.js"
+    "synth": "./admin/cli/index.js",
+    "synth-plugin": "./admin/cli/plugin.js"
   },
   "scripts": {
     "start": "nodemon admin/server/server.js",

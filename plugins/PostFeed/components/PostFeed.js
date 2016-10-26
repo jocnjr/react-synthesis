@@ -1,8 +1,8 @@
 // Content.js
 import React from 'react';
-import Post from '../components/Post';
+import Post from './PostItem';
 
-export default class PostFeed extends React.Component {
+class PostFeed extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -56,3 +56,5 @@ export default class PostFeed extends React.Component {
     )
   }
 }
+
+module.exports = PostFeed;

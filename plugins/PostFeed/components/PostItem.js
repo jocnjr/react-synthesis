@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-export default class Post extends React.Component {
+export default class PostItem extends React.Component {
   render() {
     return (
   		<div className="content-page-post" key={this.props.postData._id}>
