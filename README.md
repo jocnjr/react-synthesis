@@ -9,6 +9,11 @@ Our goal with Synthesis is provide a simple starting point for you next web proj
 
 Our team is currently working on completing the alpha version which should wrap this November. 
 
+**You can check out a demo [here](http://react-synthesis.herokuapp.com/). Credentials:**
+
+ - __user__: welcome@demo.com
+ - __pass__: passwd
+
 ## Installation
 ```
 git clone https://github.com/synthesis-js/react-synthesis.git
@@ -49,10 +54,6 @@ npm start
 
 If no users have been created you will be redirected to the sign-up page to create the admin user.
 	
-
-## API Reference
-
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
 
 ## Pull Requests
 
