@@ -4,7 +4,7 @@ as a developer you can use the cli toolbelt to create the main app, super user t
 
 ## app and superuser setup
 
-1. run the synth command passing in the name of you app and wait for the other questions via prompt: 
+1. Run the synth command passing in the name of you app and wait for the other questions via prompt: 
 
 ````
 synth <nameApp>
@@ -14,7 +14,7 @@ Important: if you get an error like: "-bash: /usr/local/bin/synth: No such file 
 
 Important (2): you will need the server running to be able to post the data to your database, so don't forget to ```npm start```.
 
-2. going through the prompt you'll be asked to:
+2. Going through the prompt you'll be asked to:
 
 ```
  -> enter the app title
@@ -24,7 +24,7 @@ Important (2): you will need the server running to be able to post the data to y
  -> enter author's name
  ```
 
-3. after the confirmation you're safe to ctrl+c.
+3. After the confirmation you're safe to ctrl+c.
 
 ## plugin infraestructure setup
 
