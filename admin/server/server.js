@@ -39,7 +39,7 @@ app.use((req, res, next) => {
 app.use(express.static('admin'));
 app.use(express.static('dist'));
 
-app.get('/', sessionController.isLoggedIn, (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + './../../index.html'));
 });
 
