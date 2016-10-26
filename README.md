@@ -15,16 +15,16 @@ cd react-synthesis-master
 npm install
 ```
 
-Next create a file in the root directory, titled config.js. This file will hold the url to your mongo database as we as your secret key for password hashing. 
+Next create a file in the root directory titled config.js. This file will hold the url to your mongo database as well as your secret key for password hashing. 
 
-We use mongo labs for a simple remote database https://mlab.com/.
+We recommend using mongo labs for a simple remote database https://mlab.com/.
 
 Your session secret should be a string.
 
 ```
 // config.js
 const sessionSecret = "hashSecret";
-const serverConfig = 'mongodb://database.url';
+const serverConfig = "mongodb://database.url";
 
 module.exports = { sessionSecret, serverConfig };
 ```
@@ -34,7 +34,7 @@ Next run the webpack build command to compile our react components.
 npm run build
 ```
 
-For local development, start up the react devolopment server and navigate to http://localhost:7700/
+For local development, start up the react development server and navigate to http://localhost:7700/
 ```
 npm run dev:hot
 ```
@@ -44,7 +44,7 @@ Then start up the express server
 npm start
 ```
 
-If no users have been created you will be redirect to the sign-up page to create the admin user.
+If no users have been created you will be redirected to the sign-up page to create the admin user.
 	
 
 ## API Reference
@@ -65,4 +65,4 @@ Have an idea for a package or a feature you'd love to see in Synthesis? Check ou
 
 ## License
 
-Synhesis is <a href="https://github.com/synthesis-js/synthesis/blob/master/LICENSE" >MIT licenced</a>
+Synhesis is <a href="https://github.com/synthesis-js/synthesis/blob/master/LICENSE" >MIT licensed</a>
