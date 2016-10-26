@@ -1,14 +1,10 @@
 // Dashboard.js
 import React from 'react';
 // import ALL components from plugin/index.js
-<<<<<<< HEAD:plugins/likes/Dashboard.js
-import * as Components from "../../../plugins"
 
-=======
 import * as Components from '../../plugins';
 import DashboardNav from './components/DashboardNav';
 import PluginManager from './components/PluginManager';
->>>>>>> f1b2705c5629bf6a393786c668d194f3838ee3ea:lib/dashboard/Dashboard.js
 
 export default class Dashboard extends React.Component {
   constructor(props) {
@@ -22,11 +18,9 @@ export default class Dashboard extends React.Component {
     this.changeView = this.changeView.bind(this);
     this.saveComponentsToDB = this.saveComponentsToDB.bind(this);
   }
-
   componentDidMount() {
     this.buildPluginSelector();
   }
-
   addComponent(e) {
     let pluginName = e.target.previousSibling.value;
     this.saveComponentsToDB(pluginName);

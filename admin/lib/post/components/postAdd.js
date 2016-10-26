@@ -66,14 +66,7 @@ const BodyInput = () => {
 	);
 }
 
-// class PostContent extends React.Component {
-// 	render() {
-// 		return (
-// 			<TitleInput />
-// 			<BodyInput />
-// 		);
-// 	}
-// }
+
 const PostDetails = (props) => {
 	return (
 		<div className="form-group" id="edit-slug">

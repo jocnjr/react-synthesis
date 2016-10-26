@@ -48,9 +48,23 @@ function PostDetails(props) {
 	</div>
 }
 
+// class Post extends React.Component {
+//   constructor(props) {
+//     super(props);
+//   }
+
+//   render() { 
+//     return <ul> {this.props.post(renderPost)} </ul>;
+//   }
+
+//   renderPost({body, author}) {
+//     return <li>{body}—{author}</li>;
+//   }
+// }
+
+
 export default class Post extends React.Component {
 	render() {
-		let postRoute = '/post/' + this.props.postData._id;
 		return (
 			<PostDetails />
 		)
