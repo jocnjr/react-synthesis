@@ -1,4 +1,4 @@
-## cli toolbelt command center
+# cli toolbelt command center
 
 as a developer you can use the cli toolbelt to create the main app, super user to access the dashboard and also have the basic plugin set up through it.
 
@@ -14,7 +14,7 @@ Important: if you get an error like: "-bash: /usr/local/bin/synth: No such file 
 
 Important (2): you will need the server running to be able to post the data to your database, so don't forget to ```npm start```.
 
-2. Going through the prompt you'll be asked to:
+1. Going through the prompt you'll be asked to:
 
 ```
  -> enter the app title
@@ -24,7 +24,7 @@ Important (2): you will need the server running to be able to post the data to y
  -> enter author's name
  ```
 
-3. After the confirmation you're safe to ctrl+c.
+1. After the confirmation you're safe to ctrl+c.
 
 ## plugin infraestructure setup
 
