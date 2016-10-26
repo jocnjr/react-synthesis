@@ -4,6 +4,7 @@ import React from 'react';
 import * as Components from '../../../plugins';
 import DashboardNav from './components/DashboardNav';
 import PluginManager from './components/PluginManager';
+import { browserHistory } from 'react-router';
 
 export default class Dashboard extends React.Component {
   constructor(props) {
@@ -16,6 +17,13 @@ export default class Dashboard extends React.Component {
     this.deleteComponent = this.deleteComponent.bind(this);
     this.changeView = this.changeView.bind(this);
     this.saveComponentsToDB = this.saveComponentsToDB.bind(this);
+  }
+
+  componentWillMount() {
+    let token = localStorage.getItem('token');
+    if(!token) {
+      browserHistory.push('/login');
+    }
   }
 
   componentDidMount() {

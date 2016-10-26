@@ -13,7 +13,7 @@ const userSchema = new Schema({
   created_at: { type: Date, required: true, default: Date.now },
   updated_at: { type: Date, required: true, default: Date.now },
   user_type: {type: Array, required: true, default: ['admin']},
-  blog_id: {type: String, required: true},
+  blog_id: {type: String},
   token: String
 });
 

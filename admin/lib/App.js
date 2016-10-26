@@ -1,6 +1,6 @@
 // App.js
 import React from 'react';
-
+import { browserHistory } from 'react-router';
 // import components
 import NavBar from './navbar/components/Navbar';
 
@@ -9,6 +9,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {}
     this.getComponentsXHR = this.getComponentsXHR.bind(this);
+    this.checkUser = this.checkUser.bind(this);
     this.sendComponentsToStore = this.sendComponentsToStore.bind(this);
     this.getPostsXHR = this.getPostsXHR.bind(this);
     this.sendPostsToStore = this.sendPostsToStore.bind(this);
@@ -17,6 +18,29 @@ export default class App extends React.Component {
   componentDidMount() {
     this.getComponentsXHR();
     this.getPostsXHR();
+
+    let token = localStorage.getItem('token');
+    if(!token) {
+      this.checkUser();
+    }
+  }
+
+  checkUser() {
+    let that = this;
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = () => {
+      if(xhr.status === 200 && xhr.readyState === 4) {
+        that.handleUserData(JSON.parse(xhr.responseText));
+      }     
+    }
+    xhr.open('GET', '/api/users');
+    xhr.send();    
+  }
+
+  handleUserData(userData) {
+    if(userData.length === 0) {
+      browserHistory.push('/signup')
+    }
   }
 
   getComponentsXHR() {
@@ -27,7 +51,6 @@ export default class App extends React.Component {
       }     
     }
     xhr.open('GET', '/api/plugins');
-    xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send();
   }
 
