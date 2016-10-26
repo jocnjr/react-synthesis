@@ -29,7 +29,33 @@ import React from 'react';
 //     alert('title and post required');
 //   }
 // }
-function createUrl(props) {
+const Title = (props) => {
+	return (
+		<div className="form-group">
+			<input type="text" name="title" id="post-title" value="" />
+		</div>
+	);
+}
+const Body = (props) => {
+	return (
+		<div className="form-group">
+			<textarea className="form-control" id="post-body" rows="10" value=""></textarea>
+		</div>
+	);
+}
+
+const Details = (props) => {
+	return (
+		<div className="form-group" id="edit-slug">
+			<strong>Permalink:</strong>
+			<span id="sample-permalink" tabindex="-1">{props.site_url}<span id="editable-post-name" title="Click to edit this part of the permalink">focusing-on-tw…es-tsu-and-usc</span>/</span>
+			<span id="edit-slug-buttons"><a href="#post_name" class="edit-slug button button-small hide-if-no-js" onclick="editPermalink(80); return false;">Edit</a></span>
+			<span id="editable-post-name-full">focusing-on-two-universities-tsu-and-usc</span>
+		</div>
+	);
+}
+
+const createUrl = (props) => {
 	let postUrl = $(props.title).val()
 	postUrl = postUrl.toLowerCase();
 	postUrl = postUrl.replace(/(^\s+|[^a-zA-Z0-9 ]+|\s+$)/g,"");   //this one
@@ -48,32 +74,6 @@ const createPost = (data) => {
 	req.open('POST', '/api/post', true);
 	req.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
 	req.send(JSON.stringify(data));
-}
-const TitleInput = () => {
-	return (
-		<div className="form-group">
-			<input type="text" name="title" id="post-title" placeholder="Add Title Here" />
-		</div>
-	);
-}
-const BodyInput = () => {
-	return (
-		<div className="form-group">
-			<textarea className="form-control" id="post-body" rows="10"></textarea>
-		</div>
-	);
-}
-
-const PostDetails = (props) => {
-	return (
-		<div className="form-group" id="edit-slug">
-			<strong>Permalink:</strong>
-			<span id="sample-permalink" tabindex="-1">{props.site_url}<span id="editable-post-name" title="Click to edit this part of the permalink">focusing-on-tw…es-tsu-and-usc</span>/</span>
-			<span id="edit-slug-buttons"><a href="#post_name" class="edit-slug button button-small hide-if-no-js" onclick="editPermalink(80); return false;">Edit</a></span>
-			<span id="editable-post-name-full">focusing-on-two-universities-tsu-and-usc</span>
-
-		</div>
-	);
 }
 
 export default class Edit extends React.Component {
