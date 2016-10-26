@@ -36,8 +36,12 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
   next();
 });
-app.use(express.static('client'));
+app.use(express.static('admin'));
 app.use(express.static('dist'));
+
+app.get('/', sessionController.isLoggedIn, (req, res) => {
+    res.sendFile(path.join(__dirname + './../../index.html'));
+});
 
 app.get('/dashboard.html', sessionController.isLoggedIn, (req, res) => {
     res.sendFile(path.join(__dirname + './../client/components/dashboard.html'));
