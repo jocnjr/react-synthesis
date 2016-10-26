@@ -7,7 +7,6 @@ import PostFeed from "../post/components/postFeed"
 
 export default class Content extends React.Component {
   render() {
-  	console.log('POSTS', this.props.posts)
     return (
       <div>
         im in the content js  

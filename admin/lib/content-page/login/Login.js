@@ -41,7 +41,6 @@ export default class Login extends React.Component {
 
 
   render() {
-  	console.log(this.props)
     return (
     	<div>
     		<h3>Login to Dashboard</h3>
@@ -50,7 +49,7 @@ export default class Login extends React.Component {
 				<input id="login-password" type="password" name="password" placeholder="password" />
 				<button id="login-submit" type="submit">Login to dashboard</button>
 			</form>
-			<h5><Link to="/">home</Link></h5>
+			<h5><Link to="/signup">Sign up</Link></h5>
 		</div>
     )
   }
