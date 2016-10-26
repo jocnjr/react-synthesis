@@ -142,7 +142,7 @@ app.delete('/api/plugin_item/:plugin_item_id', pluginItemController.deletePlugin
 // ** PLUGINS ** DO NOT EDIT BELOW vvv
 
 //%%begin%%
-require('../../plugins/comments/server/routes')(app);
+require('../../plugins/Comments/server/routes')(app);
 //%%end%%
 
 // ** PLUGINS ** DO NOT EDIT ABOVE ^^^
