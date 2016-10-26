@@ -9,8 +9,7 @@ export default class Content extends React.Component {
   render() {
     return (
       <div>
-        im in the content js  
-    		<PostFeed postData={this.props.post} />
+    		<PostFeed postData={this.props.posts} />
     	</div>
     )
   }

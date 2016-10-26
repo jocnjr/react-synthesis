@@ -1,5 +1,6 @@
 import React from 'react';
 import Post from './Post';
+import PostFeedItem from './PostFeedItem';
 
 export default class PostFeed extends React.Component {
   render() {
@@ -12,7 +13,7 @@ export default class PostFeed extends React.Component {
 
   	let posts = postData.map(post => {
   		return (
-  			<Post key={post._id} postData={post} />
+  			<PostFeedItem key={post._id} postData={post} />
   		)
   	})
     return (
