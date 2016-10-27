@@ -21,7 +21,6 @@ userController.createUser = (req, res) => {
 
   newUser.save(function(err, res, next){
     if (err) {
-      console.log('its hitting here, for sure <--------');
       let newError = new Error('error! duplicated email in database.');
       // res.status(500).send({error: 'error! duplicated email in database.'});
       return 'duplicated email';
@@ -80,7 +79,7 @@ userController.deleteUserById = (req, res) => {
 userController.verifyUser = (req, res, next) => {
   console.log('password', req.body.password)
   User.findOne({email: req.body.email}, (err,user) => {
-    console.log('user', user.password)
+    console.log('user', user)
     if (err) return res.status(500).send(err);
     if (user) {
       if (bcrypt.compareSync(req.body.password, user.password)) {
