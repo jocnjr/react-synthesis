@@ -31,7 +31,6 @@ render((
 				<Route path="/add" component={PostAdd} />
 				<Route path="/edit" component={Edit} />
 				<Route path="/post/:id" component={PostView} />
-
 			</Route>
 		</Router>
 	</Provider>
