@@ -12,7 +12,7 @@ Our team is currently working on completing the alpha version which should wrap 
 ```
 git clone https://github.com/synthesis-js/react-synthesis.git
 
-cd react-synthesis-master
+cd react-synthesis
 
 npm install
 ```
