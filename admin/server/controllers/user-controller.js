@@ -77,16 +77,20 @@ userController.deleteUserById = (req, res) => {
 
 //verify user's credentials
 userController.verifyUser = (req, res, next) => {
-  console.log('password', req.body.password)
   User.findOne({email: req.body.email}, (err,user) => {
-    console.log('user', user)
     if (err) return res.status(500).send(err);
     if (user) {
       if (bcrypt.compareSync(req.body.password, user.password)) {
-        console.log("you're right!");
         let newToken = new Buffer(serverConfig.sessionSecret + user.email).toString('base64');
         cookieController.setSSIDCookie(req, res, newToken);
-        res.status(302).send(newToken);
+
+        let userData = {
+          id: user._id,
+          email: user.email,
+          token: newToken
+        }
+
+        res.status(302).send(userData);
         } else {
         console.log('access denied... redirecting');
         res.redirect('/');        

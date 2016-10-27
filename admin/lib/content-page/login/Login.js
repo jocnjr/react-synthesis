@@ -28,7 +28,9 @@ export default class Login extends React.Component {
 		let xhr = new XMLHttpRequest();
 		xhr.onreadystatechange = () => {
 			if(xhr.status === 302 && xhr.readyState === 4) {
-				localStorage.setItem('token', xhr.responseText)
+				let userData = JSON.parse(xhr.responseText);
+				localStorage.setItem('token', userData.token);
+				localStorage.setItem('userId', userData.id);
 				browserHistory.push('dashboard');
 				that.props.setUserData(xhr.responseText);
 			}			
