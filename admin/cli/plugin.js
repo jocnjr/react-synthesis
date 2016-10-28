@@ -40,11 +40,11 @@ function createDirAndFiles(dirName, mountPoint) {
           fileContents = fileContents.replace(/%name%/i, dirName);
           fileContents = fileContents.replace(/%mount_point%/i, mountPoint);
           fs.writeFile(path + "/synth.js", fileContents, function(err) {
-              if (err) {
-                  console.log('error writing file', err);
-              } else {
-                  console.log('synth.js writing file succeeded');
-              }
+            if (err) {
+                console.log('error writing file', err);
+            } else {
+                console.log('synth.js writing file succeeded');
+            }
           });
         });
 
@@ -53,11 +53,11 @@ function createDirAndFiles(dirName, mountPoint) {
           if (err) throw err;
           fileContents = fileContents.replace(/%name%/gi, dirName);
           fs.writeFile(path + "/actions.js", fileContents, function(err) {
-              if (err) {
-                  console.log('error writing file', err);
-              } else {
-                  console.log('actions.js writing file succeeded');
-              }
+            if (err) {
+                console.log('error writing file', err);
+            } else {
+                console.log('actions.js writing file succeeded');
+            }
           });
         });
 
@@ -66,11 +66,11 @@ function createDirAndFiles(dirName, mountPoint) {
           fileContents = fileContents.replace(/%name%/gi, dirName);          
           if (err) throw err;
           fs.writeFile(path + "/actionTypes.js", fileContents, function(err) {
-              if (err) {
-                  console.log('error writing file', err);
-              } else {
-                  console.log('actionTypes.js writing file succeeded');
-              }
+            if (err) {
+                console.log('error writing file', err);
+            } else {
+                console.log('actionTypes.js writing file succeeded');
+            }
           });
         });
 
@@ -79,11 +79,11 @@ function createDirAndFiles(dirName, mountPoint) {
           fileContents = fileContents.replace(/%name%/gi, dirName);          
           if (err) throw err;
           fs.writeFile(path + "/constants.js", fileContents, function(err) {
-              if (err) {
-                  console.log('error writing file', err);
-              } else {
-                  console.log('constants.js writing file succeeded');
-              }
+            if (err) {
+                console.log('error writing file', err);
+            } else {
+                console.log('constants.js writing file succeeded');
+            }
           });
         });
 
@@ -92,11 +92,11 @@ function createDirAndFiles(dirName, mountPoint) {
           if (err) throw err;
           fileContents = fileContents.replace(/%name%/gi, dirName);          
           fs.writeFile(path + "/index.js", fileContents, function(err) {
-              if (err) {
-                  console.log('error writing file', err);
-              } else {
-                  console.log('index.js writing file succeeded');
-              }
+            if (err) {
+                console.log('error writing file', err);
+            } else {
+                console.log('index.js writing file succeeded');
+            }
           });
         });
 
@@ -105,11 +105,11 @@ function createDirAndFiles(dirName, mountPoint) {
           if (err) throw err;
           fileContents = fileContents.replace(/%name%/gi, dirName);
           fs.writeFile(path + "/reducer.js", fileContents, function(err) {
-              if (err) {
-                  console.log('error writing file', err);
-              } else {
-                  console.log('reducer.js writing file succeeded');
-              }
+            if (err) {
+                console.log('error writing file', err);
+            } else {
+                console.log('reducer.js writing file succeeded');
+            }
           });
         });
 
@@ -125,11 +125,11 @@ function createDirAndFiles(dirName, mountPoint) {
           if (err) throw err;
           fileContents = fileContents.replace(/%name%/gi, dirName);
           fs.writeFile(componentsDir+'/'+firstLetterUpperCase(dirName)+'.js', fileContents, function(err) {
-              if (err) {
-                  console.log('error writing file', err);
-              } else {
-                  console.log('components plugin writing file succeeded');
-              }
+            if (err) {
+                console.log('error writing file', err);
+            } else {
+                console.log('components plugin writing file succeeded');
+            }
           });
         });
       }
@@ -146,11 +146,11 @@ function createDirAndFiles(dirName, mountPoint) {
           if (err) throw err;
           fileContents = fileContents.replace(/%name%/gi, dirName);          
           fs.writeFile(serverDir + "/controller.js", fileContents, function(err) {
-              if (err) {
-                  console.log('error writing file', err);
-              } else {
-                  console.log('server/controller.js writing file succeeded');
-              }
+            if (err) {
+                console.log('error writing file', err);
+            } else {
+                console.log('server/controller.js writing file succeeded');
+            }
           });
         });
 
@@ -159,11 +159,11 @@ function createDirAndFiles(dirName, mountPoint) {
           if (err) throw err;
           fileContents = fileContents.replace(/%name%/gi, dirName);          
           fs.writeFile(serverDir + "/routes.js", fileContents, function(err) {
-              if (err) {
-                  console.log('server/routes.js error writing file', err);
-              } else {
-                  console.log('routes.js writing file succeeded');
-              }
+            if (err) {
+                console.log('server/routes.js error writing file', err);
+            } else {
+                console.log('routes.js writing file succeeded');
+            }
           });
         });
 
@@ -172,11 +172,11 @@ function createDirAndFiles(dirName, mountPoint) {
           if (err) throw err;
           fileContents = fileContents.replace(/%name%/gi, dirName);          
           fs.writeFile(serverDir + "/model.js", fileContents, function(err) {
-              if (err) {
-                  console.log('error writing file', err);
-              } else {
-                  console.log('server/model.js writing file succeeded');
-              }
+            if (err) {
+                console.log('error writing file', err);
+            } else {
+                console.log('server/model.js writing file succeeded');
+            }
           });
         });  
 
@@ -185,11 +185,11 @@ function createDirAndFiles(dirName, mountPoint) {
           if (err) throw err;
           fileContents = fileContents.replace(/%name%/gi, dirName);
           fs.writeFile(serverDir + "/index.js", fileContents, function(err) {
-              if (err) {
-                  console.log('error writing file', err);
-              } else {
-                  console.log('server/index.js writing file succeeded');
-              }
+            if (err) {
+                console.log('error writing file', err);
+            } else {
+                console.log('server/index.js writing file succeeded');
+            }
           });
         });          
 
@@ -205,11 +205,11 @@ function editServerFile(pluginName) {
       console.log(typeof fileContents);
       fileContents = fileContents.replace(/\/\/%%begin%%/i, requireStr);
       fs.writeFile(pathServerFile, fileContents, function(err) {
-          if (err) {
-              console.log('error writing file', err);
-          } else {
-              console.log('writing file succeeded');
-          }
+        if (err) {
+            console.log('error writing file', err);
+        } else {
+            console.log('writing file succeeded');
+        }
       });
     });
   }
