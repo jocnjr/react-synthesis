@@ -8,7 +8,7 @@ import PostFeed from "../post/components/PostFeed"
 export default class Content extends React.Component {
   render() {
     return (
-      <div>
+      	<div>
     		<PostFeed postData={this.props.posts} />
     	</div>
     )

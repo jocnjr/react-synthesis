@@ -19,7 +19,9 @@ export default class PluginManager extends React.Component {
   	})
 
     let availPlugins = this.props.localPlugins.map((plugin, i) => {
-      return <option key={i} value={plugin}>{plugin}</option>
+      if (plugin !== 'PostFeed') {
+        return <option key={i} value={plugin}>{plugin}</option>
+      }
     })
 
     return (
