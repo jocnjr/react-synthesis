@@ -42,7 +42,10 @@ export default class Dashboard extends React.Component {
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = () => {
       if(xhr.status === 200 && xhr.readyState === 4) {
-        this.setState({localPluginList: JSON.parse(xhr.responseText)})
+        let pluginList = JSON.parse(xhr.responseText);
+        // mock for demo
+        pluginList = pluginList.concat(['Contact Form', 'Image Gallery', 'Google Map'])
+        this.setState({localPluginList: pluginList})
       }     
     }
     xhr.open('GET', '/api/stored-plugins');

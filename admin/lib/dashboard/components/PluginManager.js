@@ -11,7 +11,7 @@ export default class PluginManager extends React.Component {
   	let installedPlugins = this.props.installedPlugins;
   	let installedList = installedPlugins.map((plugin, i) => {
   		return(
-  			<div key={i}>
+  			<div key={i} id="installedPluginsListItem">
   				{plugin.name}
   				<button className="btn-default btn" onClick={() => {this.props.deleteComponent(plugin)}}>Uninstall</button>
   			</div>

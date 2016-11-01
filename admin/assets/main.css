@@ -91,6 +91,18 @@ a:hover {
     font-size: 1.25em;    
 }
 
+#installedPluginsListItem {
+    padding: .5em 0;
+    width: 35em;
+    position: relative;
+    border-bottom: solid rgba(255, 255, 255, .5) 1px;
+}
+#installedPluginsListItem button{
+    right: 0;
+    top: 0;
+    position: absolute;
+}
+
 .content-page-post {
 	background-color: white;
 	padding: 0.75em 1.5em;
