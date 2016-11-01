@@ -13,9 +13,7 @@ class Post extends React.Component {
     this.gatherPostData = this.gatherPostData.bind(this);
   }
 
-  componentDidMount() {
-
-  }
+  componentDidMount() {}
 
   gatherPostData(e) {
     e.preventDefault();
@@ -23,12 +21,11 @@ class Post extends React.Component {
     const body = document.getElementById('post-body').value;
     const status = document.getElementById('post-status-display').textContent;
     const type = document.getElementById('post_type').value;
-    const user = 'Mario';
+    const user = localStorage.getItem('userId');
 
     const imgUrl = [];
     const videoEmbed = [];
     // const publishDate = document.getElementById().value;
-    console.log('we executed')
     if (title !== '' && body !== '') {
       let data = {};
       data.title = title;
@@ -37,7 +34,6 @@ class Post extends React.Component {
       data.post_type = type;
       data.user_id = user; 
       // data.uri = createUri(title);
-        console.log(data)
       this.createPost(data);
     } else {
       alert('title and post required');

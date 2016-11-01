@@ -61,11 +61,11 @@ class Comment extends React.Component {
   }
 
   addComment() {
-  	let comment = this.state.commentInput;
+    let comment = this.state.commentInput;
     let author = this.state.authorInput;
-  	let postId = this.state.postId;
+    let postId = this.state.postId;
   	// build comment object
-  	let commentObj = {};
+    let commentObj = {};
   	commentObj.post_id = postId;
   	commentObj.body = comment;
   	commentObj.author = author;
