@@ -2,7 +2,7 @@
 
 ![Alt text](/admin/assets/logo.jpg)
 
-Synthesis is a extensible open-source content mangement framework built for the modern web with React, Redux, Express, and Mongo. It is designed to be pragmatic and extensible, so it's easy to create a website or web app, new features and plugins around Synthesis.
+Synthesis is a extensible open-source content management framework built for the modern web with React, Redux, Express, and Mongo. It is designed to be pragmatic and extensible, so it's easy to create a website or web app, new features and plugins around Synthesis.
 
 Our goal with Synthesis is provide a simple starting point for you next web project. We're striving to make the framework approachable for both developers and non-developers.  Also to provide a marketplace of plugins to aid in speeding up the development of your web project. 
 
