@@ -103,10 +103,15 @@ a:hover {
     position: absolute;
 }
 
+.comment-section .form-group {
+    margin-bottom: 1.5em;
+}
+
 .content-page-post {
 	background-color: white;
 	padding: 0.75em 1.5em;
 	margin: .5em auto;
+    max-width: 45em;
 }
 
 .content-page-post h4 {
@@ -128,8 +133,29 @@ a:hover {
 
 .comment-box  {
     display: inline-block;
-    width: 75% !important; 
+    width: 75% !important;
+    margin: .25em 0; 
 }
 
+.comment-submit {
+    margin-left: .25em;
+    /* margin-bottom: 2em; */
+    margin-top: .25em;
+    height: 3.75em;
+    position: absolute;
+}
+
+.comment span {
+    display: block;
+}
+
+#title {
+    font-weight: bold;
+    margin: 2.5em 0 1em;
+}   
+
+#body {
+    margin-bottom: 2.5em;
+}
 
 
