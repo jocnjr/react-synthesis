@@ -73,8 +73,8 @@ export default class Signup extends React.Component {
     		<h4>Sign up</h4>
     		<div className="form-group">
     			<input ref="signupEmail" placeholder="email" onChange={(e) => {this.updateInput(e)}} />
-    			<input ref="signupPassword" placeholder="password" onChange={(e) => {this.updateInput(e)}} />
-    			<input ref="signupConfirm" placeholder="confirm-password" onChange={(e) => {this.updateInput(e)}} />
+    			<input ref="signupPassword" type="password" placeholder="password" onChange={(e) => {this.updateInput(e)}} />
+    			<input ref="signupConfirm" type="password" placeholder="confirm-password" onChange={(e) => {this.updateInput(e)}} />
     			<button className="btn btn-default" onClick={(e) => {this.signupUser(e)}}>Enter</button>
     		</div>
     	</div>
