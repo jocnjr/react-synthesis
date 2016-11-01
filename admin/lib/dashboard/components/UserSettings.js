@@ -60,9 +60,22 @@ export default class UserSettings extends React.Component {
     	console.log(this.state)
         return (
         	<div>
-        		<input value={this.state.userName} onChange={(e) => this.handleChange(e, "name")} />
-        		<input value={this.state.userEmail} onChange={(e) => this.handleChange(e, "email")} />
-        		<button onClick={this.updateUser}>Update Settings</button>
+        		<h3>Your Info</h3>
+        		<div className="userInfo">
+        			Name: {this.state.userName}
+        			<br />
+        			Email: {this.state.userEmail}
+        		</div>
+        		<br />
+        		<h3>Update Info</h3>
+        		<div className="userSettingForm">
+        			Name
+	        		<input value={this.state.userName} onChange={(e) => this.handleChange(e, "name")} />
+	        		<br />
+	        		Email
+	        		<input value={this.state.userEmail} onChange={(e) => this.handleChange(e, "email")} />
+	        		<button onClick={this.updateUser}>Update Settings</button>
+        		</div>
         	</div>
         );
     }
