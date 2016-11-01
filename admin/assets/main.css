@@ -86,6 +86,11 @@ a:hover {
     left: 17.5em;
 }
 
+#installConfirm {
+    color: #fb561f;
+    font-size: 1.25em;    
+}
+
 .content-page-post {
 	background-color: white;
 	padding: 0.75em 1.5em;

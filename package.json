@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Extensible content management framework to create web projects",
   "engines": {
-  "node": "6.4.0"
+    "node": "6.4.0"
   },
   "main": "index.js",
   "bin": {
@@ -43,6 +43,7 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "mongoose": "^4.6.2",
+    "nodemailer": "^2.6.4",
     "nodemon": "^1.10.2",
     "progress": "^1.1.8",
     "react": "^15.3.2",

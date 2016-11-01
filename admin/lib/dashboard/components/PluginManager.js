@@ -30,6 +30,7 @@ export default class PluginManager extends React.Component {
     		<br />
     		<div className="plugin-installer">
     			<h4>Add Plugins</h4>
+          <h4 id="installConfirm">{this.props.installConfirm}</h4>
 	        <select>
             {availPlugins}
 	        </select>

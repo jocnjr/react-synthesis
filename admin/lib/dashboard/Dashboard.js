@@ -12,7 +12,8 @@ export default class Dashboard extends React.Component {
     super(props);
     this.state = {
       activeView: 'pluginManager',
-      localPluginList: []
+      localPluginList: [],
+      installConfirm: ''
     }
     this.addComponent = this.addComponent.bind(this);
     this.deleteComponent = this.deleteComponent.bind(this);
@@ -34,6 +35,7 @@ export default class Dashboard extends React.Component {
   addComponent(e) {
     let pluginName = e.target.previousSibling.value;
     this.saveComponentsToDB(pluginName);
+    this.state.installConfirm = pluginName + ' plugin installed';
   }
 
   buildPluginSelector() {
@@ -103,7 +105,7 @@ export default class Dashboard extends React.Component {
 
     // list of pre-installed components
     let synthComponents = {
-        pluginManager: <PluginManager installedPlugins={this.props.components} localPlugins={this.state.localPluginList} addComponent={this.addComponent} deleteComponent={this.deleteComponent} />,
+        pluginManager: <PluginManager installedPlugins={this.props.components} localPlugins={this.state.localPluginList} addComponent={this.addComponent} deleteComponent={this.deleteComponent} installConfirm={this.state.installConfirm} />,
         userSettings: <UserSettings />
     }
     // check if component is active
