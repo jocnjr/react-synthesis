@@ -9,7 +9,7 @@ const commentSchema = new Schema({
   updated_at: { type: Date, required: true, default: Date.now },
   isApproved: {type: Boolean, required: true, default: false},
   author: {type: String, required: true},
-  author_email: {type: String, required: true},
+  author_email: {type: String},
   post_id: {type: String, required: true},
 });
 
