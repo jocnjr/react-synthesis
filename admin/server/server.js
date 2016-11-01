@@ -15,6 +15,7 @@ const collectionController = require('./controllers/collection-controller');
 const collectionItemController = require('./controllers/collection-item-controller');
 const pluginController = require('./controllers/plugin-controller');
 const pluginItemController = require('./controllers/plugin-item-controller');
+var nodemailer = require("nodemailer");
 
 //connecting to the database
 mongoose.connect(dbConfig.url, function(err) {

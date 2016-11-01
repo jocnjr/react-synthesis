@@ -98,17 +98,18 @@ class Comment extends React.Component {
 
   render() {
   	let commentList = this.state.comments.map((comment, i) => {
-  		return <div key={i}>{comment.author}, {comment.body}</div>
+  		return <div key={i} className="comment"><span>{comment.author}</span>{comment.body}</div>
   	})
   	
     return (
-    	<div className="col-md-6 col-md-offset-3">
-    		<h4>Comments</h4>
+    	<div className="col-md-6 col-md-offset-3 comment-section">
+    		<h4>Leave a comment</h4>
         <CommentForm author={this.state.authorInput} 
           comment={this.state.commentInput} 
           updateInput={this.updateInput} 
           addComment={this.addComment} />
     		<div className="comment-list">
+          <h4>Comments</h4>
     			{commentList}
     		</div>
     	</div>
