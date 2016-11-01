@@ -7,7 +7,8 @@ class Comment extends React.Component {
     this.state = {
     	postId: this.props.postData._id,
     	comments: [],
-    	input: ''
+    	commentInput: '',
+      authorInput: ''
     }
     this.getCommentsFromDB = this.getCommentsFromDB.bind(this);
   }
@@ -47,21 +48,20 @@ class Comment extends React.Component {
 
   updateInput(e) {
   	// update state with changing input from comment box
-  	let newInput = e.target.value;
-  	this.setState({input: newInput});
+  	let commentInput = this.refs.commentInput.value;
+    let authorInput = this.refs.authorInput.value;
+  	this.setState({commentInput, authorInput});
   }
 
   addComment() {
-  	let comment = this.state.input;
+  	let comment = this.state.commentInput;
+    let author = this.state.authorInput;
   	let postId = this.state.postId;
   	// build comment object
   	let commentObj = {};
   	commentObj.post_id = postId;
   	commentObj.body = comment;
-  	// placeholder
-  	commentObj.author = 'Mario';
-  	commentObj.author_email = 'Mario@email.com';
-  	// end placeholder
+  	commentObj.author = author;
 
   	// push comments to comment list in state
   	let commentList = this.state.comments.slice();
@@ -87,20 +87,21 @@ class Comment extends React.Component {
   clearInput() {
   	let input = '';
   	this.refs.commentInput.value = input;
-  	this.setState({input: input});
+    this.refs.authorInput.value = input;
+  	this.setState({commentInput: input, authorInput: input});
   }
 
   render() {
   	let commentList = this.state.comments.map((comment, i) => {
-  		return <div key={i}>{comment.body}</div>
+  		return <div key={i}>{comment.author}, {comment.body}</div>
   	})
   	
     return (
     	<div className="col-md-6 col-md-offset-3">
     		<h4>Comments</h4>
     		<div className="form-group">
-    			<input className="form-control comment-box" ref="commentInput" placeholder="leave a comment" onChange={(e) => {this.updateInput(e)}} />
-
+    			<input className="form-control comment-box" ref="authorInput" placeholder="leave your name" onChange={(e) => {this.updateInput(e)}} />
+          <input className="form-control comment-box" ref="commentInput" placeholder="leave a comment" onChange={(e) => {this.updateInput(e)}} />          
     			<button className="btn btn-default" onClick={(e) => {this.addComment(e)}}>Enter</button>
     		</div>
     		<div className="comment-list">
