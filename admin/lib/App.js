@@ -2,7 +2,7 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
 // import components
-import NavBar from './navbar/components/Navbar';
+import NavBar from './navbar/components/NavBar';
 
 export default class App extends React.Component {
   constructor(props) {
