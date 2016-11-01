@@ -15,7 +15,7 @@ export default class DashboardNav extends React.Component {
     		<nav>
     			<h4>Dashboard</h4>
     			<ul className="dashboard-nav" onClick={(e) => this.props.changeView(e)}>
-		    		<li className="dashboard-nav-link" data-name="settings">Settings</li>
+		    		<li className="dashboard-nav-link" data-name="userSettings">Settings</li>
 		    		<li className="dashboard-nav-link" data-name="pluginManager">Plugin Manager</li>
 		    		{activePlugins}
 		    	</ul>

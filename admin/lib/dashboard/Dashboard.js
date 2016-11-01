@@ -4,6 +4,7 @@ import React from 'react';
 import * as Components from '../../../plugins';
 import DashboardNav from './components/DashboardNav';
 import PluginManager from './components/PluginManager';
+import UserSettings from './components/UserSettings';
 import { browserHistory } from 'react-router';
 
 export default class Dashboard extends React.Component {
@@ -102,7 +103,8 @@ export default class Dashboard extends React.Component {
 
     // list of pre-installed components
     let synthComponents = {
-        pluginManager: <PluginManager installedPlugins={this.props.components} localPlugins={this.state.localPluginList} addComponent={this.addComponent} deleteComponent={this.deleteComponent} />
+        pluginManager: <PluginManager installedPlugins={this.props.components} localPlugins={this.state.localPluginList} addComponent={this.addComponent} deleteComponent={this.deleteComponent} />,
+        userSettings: <UserSettings />
     }
     // check if component is active
     if (synthComponents[this.state.activeView]) {

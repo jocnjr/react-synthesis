@@ -82,10 +82,15 @@ export default class App extends React.Component {
     this.props.getPosts(posts);
   }
 
+  logoutUser() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId')
+  }
+
   render() {
     return (
     	<div>
-    		<NavBar hasToken={this.props.user} />
+    		<NavBar hasToken={this.props.user} logoutUser={this.logoutUser} />
     		<div className="container-fluid">
 					{React.cloneElement(this.props.children, this.props)}
 				</div>
