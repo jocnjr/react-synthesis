@@ -18,6 +18,7 @@ export default class PostFeed extends React.Component {
   	})
     return (
     	<div className="post-feed">
+        <div className="post-feed-header">Recent Articles</div>
     		{posts}
     	</div>
     )
