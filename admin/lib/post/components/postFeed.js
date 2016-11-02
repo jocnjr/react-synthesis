@@ -17,7 +17,7 @@ export default class PostFeed extends React.Component {
   		)
   	})
     return (
-    	<div>
+    	<div className="post-feed">
     		{posts}
     	</div>
     )
