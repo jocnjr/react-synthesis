@@ -1,5 +1,5 @@
 body{
-  background: rgba(245, 245, 245, 1);
+  background: rgba(247, 247, 247, 1);
   font-family: helvetica;
 }
 /*// to fix visibility for the body content form on post.html*/
@@ -58,6 +58,54 @@ a:hover {
 	margin: 3.5em auto;
 }
 
+.LeadHero {
+    position: absolute;
+    background: url(http://www.ateam-oracle.com/wp-content/uploads/2015/02/7.png);
+    background-size: cover;
+    background-position: center center;
+    left: 0;
+    top: 3.5em;
+    height: 25em;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.LeadHeroContainer {
+    margin-top: 6.5em;
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 1em;
+}
+
+.LeadHero-title {
+    color: black;
+    margin-top: 0;
+    margin-bottom: .5em;
+    letter-spacing: .025em;
+}
+
+.LeadHero-cta {
+    background-color: rgba(255, 255, 255, 0.75);
+    color: #fb561f;
+    border: solid #fb561f 3px;
+    width: 10em;
+    height: 3em;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+.LeadHero-cta:hover {
+    background-color: #fb561f;
+    color: white;
+    transition: .5s ease-in;
+}
+
+.post-feed {
+    position: relative;
+    margin-top: 26em;
+}
+
 .dashboard-nav-container {
     position: fixed;
     display: inline-block;
@@ -111,7 +159,7 @@ a:hover {
 	background-color: white;
 	padding: 0.75em 1.5em;
 	margin: .5em auto;
-    max-width: 45em;
+    max-width: 50em;
 }
 
 .content-page-post h4 {
