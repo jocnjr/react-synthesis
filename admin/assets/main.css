@@ -1,6 +1,7 @@
 body{
-  background: rgba(247, 247, 247, 1);
+  background: rgba(248, 248, 248, 1);
   font-family: helvetica;
+  padding-bottom: 5em;
 }
 /*// to fix visibility for the body content form on post.html*/
 .form-group{
@@ -39,7 +40,7 @@ a:hover {
     line-height: 2.5em;
     font-weight: bold;
     // color: #a7ae63;
-    color: black;
+    color: rgba(0, 0, 0, 0.5);
 }
 
 .main-nav-links {
@@ -78,6 +79,14 @@ a:hover {
     padding: 1em;
 }
 
+
+.LeadHero h5{
+    margin: 0;
+    font-size: 1em;
+    font-weight: bold;
+    letter-spacing: .05em;
+}
+
 .LeadHero-title {
     color: black;
     margin-top: 0;
@@ -104,6 +113,10 @@ a:hover {
 .post-feed {
     position: relative;
     margin-top: 26em;
+}
+
+.post-view-container {
+    margin-top: 16.5em;
 }
 
 .dashboard-nav-container {
@@ -199,11 +212,11 @@ a:hover {
 
 #title {
     font-weight: bold;
-    margin: 2.5em 0 1em;
 }   
 
 #body {
     margin-bottom: 2.5em;
+    font-size: 1.1em;
 }
 
 
