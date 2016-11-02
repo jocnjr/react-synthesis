@@ -29,9 +29,9 @@ export default class PluginManager extends React.Component {
     		<h3>Plug-in Manager</h3>
     		<br />
     		<div className="plugin-installer">
-    			<h4>Add Plugins</h4>
+    			<h4>Browse Plugins</h4>
           <h4 id="installConfirm">{this.props.installConfirm}</h4>
-	        <select>
+	        <select className="form-control form-control-lg">
             {availPlugins}
 	        </select>
 	        <button className="btn btn-default" onClick={(e) => {this.props.addComponent(e)}}>Add Plugin</button>
