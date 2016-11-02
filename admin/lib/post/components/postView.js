@@ -2,8 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import * as Components from "../../../../plugins/index.js";
-// import components
-// import * as Components from "../../plugins";
+import LeadHero from '../../leadHero/components/LeadHero';
 
 export default class PostView extends React.Component {
   render() {
@@ -25,9 +24,10 @@ export default class PostView extends React.Component {
 
     return (
       <div id="post" className="row">
-        <div className="col-md-6 col-md-offset-3">
+        <LeadHero postData={this.props.posts} />
+        <div className="post-view-container col-md-6 col-md-offset-3">
           <div className="post-content">
-            <h3 id="title">{postData.title}</h3>
+            <p>by Jose Neves</p>
             <p id="body">{postData.body}</p>
           </div>
           <div className="post-details">
